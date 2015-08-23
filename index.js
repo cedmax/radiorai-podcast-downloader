@@ -1,19 +1,18 @@
 var request = require( 'request' );
 var cheerio = require( 'cheerio' );
 var fs = require( 'fs' );
-var httpreq = require( 'httpreq' );
 var ProgressBar = require( 'progress' );
 var sanitize = require( 'sanitize-filename' );
 var colors = require( 'colors' );
 var ask = require( 'prompt-autocomplete' );
-var validUrl = require('valid-url');
+var validUrl = require( 'valid-url' );
 
 function buildShowUrl( id, page ) {
 	return 'http://www.radio1.rai.it/dl/portaleRadio/programmi/json/liste/' + id + '-json-A-' + ( page ? page : 0 ) + '.html';
 }
 
 function createFolder( dir ) {
-	dir = sanitize(dir.trim());
+	dir = sanitize( dir.trim() );
 	if ( !fs.existsSync( './downloaded/'+dir ) ) {
 		fs.mkdirSync( './downloaded/'+dir );
 	}
@@ -115,9 +114,9 @@ function fetchShowPage( elm, page, queue, callback ) {
 	});
 }
 
-function askWhatToDownload(url) {
-	if (!validUrl.isUri(url) || url.indexOf('.rai.it/dl/portaleRadio/Programmi/')===-1){
-		console.log('ERROR: you need to enter a valid Rai Radio 3 program url to be parsed'.red);
+function askWhatToDownload( url ) {
+	if ( !validUrl.isUri( url ) || url.indexOf( '.rai.it/dl/portaleRadio/Programmi/' )===-1 ) {
+		console.log( 'ERROR: you need to enter a valid Rai Radio 3 program url to be parsed'.red );
 		return;
 	}
 	request( url, function( err, req ) {
@@ -163,4 +162,4 @@ if ( !fs.existsSync( './downloaded' ) ) {
 	fs.mkdirSync( './downloaded' );
 }
 
-askWhatToDownload(process.argv[2]);
+askWhatToDownload( process.argv[2] );
