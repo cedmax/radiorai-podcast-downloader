@@ -133,7 +133,7 @@ function askWhatToDownload( url ) {
 		links.unshift( 'All of them' );
 
 		ask( 'What to download?', links, {
-			maxAutocomplete: 1000
+			maxAutocomplete: process.stdout.rows - 2
 		}, function( err, show ) {
 			var toDownload = links.indexOf( show );
 			if ( !toDownload ) {
