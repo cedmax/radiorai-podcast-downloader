@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "request": "^2.61.0",
-    "cheerio": "^0.19.0",
+    "cheerio": "^0.20.0",
     "sanitize-filename": "^1.4.2",
     "progress": "^1.1.8",
     "colors": "^1.1.2",
