@@ -1,16 +1,24 @@
 # Downloader per i podcast di radiorai
 
 ## WARNING
-Il codice di questo script è un esercizio di stile, non vuole in alcun modo favorire un utilizzo illegale del materiale disponibile per l'ascolto sul sito di Radio Rai. 
 
-Se aveste intenzione di usarlo, leggete con attenzione i termini e le condizioni di utilizzo dei siti Rai e tenete presente che potreste essere ritenuti responsabili delle vostre azioni, se doveste infrangerle.
+Il codice di questo script è un esercizio di stile e non vuole l'utilizzo illegale del materiale disponibile per l'ascolto sul sito di [Rai Play Radio](https://www.raiplayradio.it/).
 
-Lo script utilizza informazioni disponibili a chiunque possieda un browser, ma non ho intenzione di aggiornarlo e manutenerlo nel caso Radio Rai cambiasse qualcosa, come dicevo è un esercizio di stile: funziona _hic et nunc_
+Leggete con attenzione termini e condizioni del sito; lo script viene offerto senza garanzia di manutenzione.
 
 ## ISTRUZIONI
-```npm install```
+
+`> yarn`
 
 per lanciare lo script
-```node index.js <<URL_SHOW>>```
 
-dove `URL_SHOW` è quello che si trova cliccando un qualsiasi programma dalla sezione podcast dei siti di radio1, radio2 e radio3 e poi su audio nel menu del programma
+`> yarn dl <<URL_SHOW>>`
+
+dove `URL_SHOW` è uno degli url degli show disponibili su [Rai Play Radio](https://www.raiplayradio.it/), ad esempio:
+
+```
+> yarn dl https://www.raiplayradio.it/programmi/labanof/archivio/puntate/
+> yarn dl https://www.raiplayradio.it/playlist/2017/12/Se-questo-e-un-uomo-0738d1ce-04af-4395-827f-4819a56b91da.html
+```
+
+NB: La paginazione delle puntate non funziona: per ora per scaricare uno show nella sua completezza è necessario rilanciare lo script per ciascuna pagina
