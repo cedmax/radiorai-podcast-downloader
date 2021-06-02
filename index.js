@@ -1,8 +1,8 @@
 require('colors')
 const fetchList = require('./modules/fetch-list')
-const config = require('./.downloadrc')
 const downloadMedia = require('./modules/download-media')
 const validUrl = require('valid-url')
+const radioRai = require('./modules/radio-rai')
 
 const url = process.argv[2]
 
@@ -11,9 +11,6 @@ if (!validUrl.isWebUri(url)) {
 }
 
 ;(async () => {
-  const type = url.includes('/archivio/puntate') ? 'puntate' : 'podcast'
-  const { title, list } = config(type)
-
-  const data = await fetchList({ url, list, title, type })
+  const data = await fetchList(url, radioRai)
   downloadMedia(data, `${__dirname}/downloaded`)
 })()
