@@ -14,12 +14,14 @@
   },
   "dependencies": {
     "axios": "0.21.1",
+    "axios-cache-adapter": "^2.7.3",
     "cheerio": "1.0.0-rc.5",
     "colors": "1.4.0",
     "file-type": "^16.2.0",
     "he": "^1.2.0",
     "mkdirp": "^1.0.4",
     "progress": "2.0.3",
+    "query-string": "^7.0.0",
     "skewered": "^1.0.0",
     "valid-url": "1.0.9"
   }

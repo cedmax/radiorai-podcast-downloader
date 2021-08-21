@@ -1,11 +1,9 @@
-const axios = require('axios')
-const cheerio = require('cheerio')
+const { getPage } = require('./utils/get-page')
 
-module.exports = async (url, { getConfig, getTitle, getList }) => {
-  const { list, title, type } = getConfig(url)
+module.exports = async (url, { getTitle, getList }) => {
+  const $ = await getPage(url)
+  const title = await getTitle($, url)
+  const list = await getList($, url)
 
-  const { data } = await axios(url)
-  const $ = cheerio.load(data)
-
-  return { title: getTitle($, title), list: getList($, list, type) }
+  return { title, list }
 }
